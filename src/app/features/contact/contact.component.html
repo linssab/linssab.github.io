@@ -1,1 +1,78 @@
-<p>contact works!</p>
+<div class="content lg-auto dummy" style="margin: 15px;">
+
+  <form #form="ngForm"
+        (submit)="onSubmit()">
+
+    <!--INPUT 1-->
+    <input class="form-control"
+           type="text"
+           [(ngModel)]="model.version"
+           [ngClass]="{
+          'is-invalid' : input1.invalid && input1.dirty,
+          'is-valid' : !input1.invalid && input1.dirty
+         }"
+           name="input1"
+           #input1="ngModel"
+           required
+           minlength="6" />
+
+    <!----------->
+    <div *ngIf="input1.errors && input1.dirty"
+         class="invalid-feedback">
+
+      <p *ngIf="input1.errors['minlength']">
+        Lunghezza minima consentita: {{minlengthVersion}}
+      </p>
+
+      <p *ngIf="input1.errors['required']">
+        Il campo e' obbligattorio
+      </p>
+
+    </div>
+    <!----------->
+
+    <br />
+
+    <!--INPUT 2-->
+
+    <input class="form-control"
+           type="text"
+           [(ngModel)]="model.changelog"
+           [ngClass]="{
+          'is-invalid' : input2.invalid && input2.dirty,
+          'is-valid' : !input2.invalid && input2.dirty
+         }"
+           name="input2"
+           #input2="ngModel"
+           required
+           minlength="10" />
+
+    <!----------->
+    <div *ngIf="input2.errors && input2.dirty"
+         class="invalid-feedback">
+
+      <p *ngIf="input2.errors['minlength']">
+        Lunghezza minima consentita: {{minlengthChangelog}}
+      </p>
+
+      <p *ngIf="input2.errors['required']">
+        Il campo e' obbligattorio
+      </p>
+
+    </div>
+    <!----------->
+
+    <br />
+
+    <!--SUBMISSION-->
+    <button type="submit" class="btn btn-primary"
+            [ngClass]="{
+          'btn-secondary': form.invalid,
+          'btn-success': form.valid
+          }">
+      Sumbit
+    </button>
+    <!-------------->
+
+  </form>
+</div>

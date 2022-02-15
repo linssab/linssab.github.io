@@ -1,7 +1,15 @@
 <div class="content lg-auto dummy" style="margin: 15px;">
 
-  <app-table [tableTemplate]="tableTemplateCaller"
-             [arrayData]="collectedData">
-  </app-table>
+  <div class="row sm-auto md-auto lg-auto">
+    <h2>Check the source code at GitHub!</h2>
+    <a class="link-git" href="https://github.com/linssab/XISMuS"> <img class="git-img" src="../../assets/github.png" /> </a>
+  </div>
+
+  <div>
+    <app-table [tableTemplate]="tableTemplateCaller"
+               [arrayData]="collectedData">
+      <!--[arrayData]="this.contact.arrayData">-->
+    </app-table>
+  </div>
 
 </div>

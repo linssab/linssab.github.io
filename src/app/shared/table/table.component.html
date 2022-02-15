@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table table-striped table-hover">
 
   <thead>
 
@@ -22,8 +22,12 @@
           </div>
         </tr>
 
-        <tr *ngIf="!isArray(element[template.nameProp])">
+        <tr *ngIf="!isArray(element[template.nameProp]) && (template.nameProp != 'x86' && template.nameProp != 'x64')">
           {{element[template.nameProp]}}
+        </tr>
+
+        <tr *ngIf="!isArray(element[template.nameProp]) && (template.nameProp == 'x64' || template.nameProp == 'x86')">
+          <a href={{element[template.nameProp]}} target="_blank">Download</a>
         </tr>
 
       </td>

@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ContactComponent } from '../contact/contact.component';
 import { HistoryService } from './history.service';
 import { VersionRecord } from './models/versionRecord';
 
@@ -9,7 +11,9 @@ import { VersionRecord } from './models/versionRecord';
   styleUrls: ['./history.component.css']
 })
 
-export class HistoryComponent implements OnInit {
+export class HistoryComponent implements OnInit, OnDestroy {
+
+  subscription?: Subscription;
 
   tableTemplateCaller = [
     {
@@ -21,32 +25,46 @@ export class HistoryComponent implements OnInit {
     }
   ]
 
-  collectedData = [
+  collectedData: VersionRecord[] = [];
+
+  /*collectedData = [
     {
       version: "v2.4.3",
       changelog: [
-        "riga1",
-        "riga2",
-        "riga3"
+        "Aggiornamento 1",
+        "Aggiornamento 2",
+        "Aggiornamento 3"
       ]
     }, {
       version: "v2.3.1",
       changelog: [
-        "riga1",
-        "riga2",
-        "riga3"
+        "Aggiornamento 1",
+        "Aggiornamento 2",
+        "Aggiornamento 3"
       ]
     }
-  ]
+  ]*/
+
+  public contact: ContactComponent = new ContactComponent;
+  private pageLim: number = 25;
 
   constructor(
     private historyService: HistoryService
-  ) { }
+  ) {
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe();
+  }
 
   ngOnInit(): void {
-    this.historyService.getAll()
+    this.subscription = this.historyService.getAll()
       .subscribe(
-        (array) => { console.log(array) }
+        (array) => {
+          array
+            .slice(0, this.pageLim)
+            .forEach(item => this.collectedData.push(item));
+        },
     );
   }
 

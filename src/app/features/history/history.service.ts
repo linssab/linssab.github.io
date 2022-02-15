@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs/internal/Observable';
 import { VersionRecord } from './models/versionRecord';
 
@@ -9,15 +10,8 @@ import { VersionRecord } from './models/versionRecord';
 
 export class HistoryService {
 
-  private baseUrl = "https://xismus.sourceforge.io/history.json";
+  private baseUrl = "https://raw.githubusercontent.com/linssab/XISMuS/master/history.json";
   constructor(private http: HttpClient) { }
-
-  /*getAll() {
-    this.http.get(`${this.baseUrl}/albums`)
-      .subscribe(
-        (array) => { console.log(array) },
-    );
-  }*/
 
   getAll(): Observable<VersionRecord[]> {
     return this.http.get<VersionRecord[]>(`${this.baseUrl}`);

@@ -6,3 +6,8 @@ export class VersionRecord {
 export class LogInfo {
   entries!: Array<string>;
 }
+
+export class Dummy {
+  version!: string;
+  text!: string;
+}

@@ -1,3 +1,16 @@
 .dummy {
-  height: 75vh;
+  min-height: 75vh;
+}
+
+.link-git {
+  display: block;
+  width: 50%;
+  max-height: 100px;
+}
+
+.git-img {
+  max-height: inherit;
+  height: 100px;
+  padding-top: 1em;
+  padding-bottom: 1em;
 }
