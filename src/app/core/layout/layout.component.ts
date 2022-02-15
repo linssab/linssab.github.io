@@ -1,0 +1,21 @@
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.css']
+})
+export class LayoutComponent implements OnInit {
+
+  constructor() { }
+
+  barIsCollapsed = false;
+
+  ngOnInit(): void {
+  }
+
+  triggerNavBar() {
+    this.barIsCollapsed = !this.barIsCollapsed;
+  }
+
+}

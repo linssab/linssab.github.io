@@ -1,0 +1,41 @@
+.card3 {
+  margin: 1em;
+  padding: 2em;
+  max-width: 100%;
+}
+
+.card2 {
+    margin: 1em;
+    padding: 2em;
+    background-color: #D3D3D3;
+}
+
+.card1 {
+    margin: 1em;
+    padding: 2em;
+    max-width: 100%;
+}
+
+.h2-right {
+  text-align: right;
+}
+
+.h2-card2 {
+  text-align: left;
+  padding-right: 30%;
+  padding-bottom: 1em;
+}
+
+.h2-left {
+  text-align: left;
+}
+
+.text {
+    text-align: justify;
+    font-size: 12pt;
+    font-family: Tahoma;
+}
+
+.caption {
+  font-size: 10pt;
+}
