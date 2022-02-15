@@ -1,0 +1,35 @@
+<table class="table">
+
+  <thead>
+
+    <tr>
+      <th *ngFor="let template of tableTemplate">
+        {{template.header}}
+      </th>
+    </tr>
+
+  </thead>
+
+  <tbody>
+
+    <tr *ngFor="let element of arrayData">
+
+      <td *ngFor="let template of tableTemplate">
+
+        <tr *ngIf="isArray(element[template.nameProp])">
+          <div *ngFor="let line of element[template.nameProp]">
+            {{line}}
+          </div>
+        </tr>
+
+        <tr *ngIf="!isArray(element[template.nameProp])">
+          {{element[template.nameProp]}}
+        </tr>
+
+      </td>
+
+    </tr>
+
+  </tbody>
+
+</table>

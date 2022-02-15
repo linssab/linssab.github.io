@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
+
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './core/navbar/navbar.component';
 import { SidebarComponent } from './core/sidebar/sidebar.component';
@@ -10,6 +11,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './features/home/home.component';
 import { LayoutComponent } from './core/layout/layout.component';
+import { TutorialsComponent } from './features/tutorials/tutorials.component';
+import { TableComponent } from './shared/table/table.component';
+import { DownloadComponent } from './features/download/download.component';
+import { HttpClientModule } from '@angular/common/http';
+import { HistoryComponent } from './features/history/history.component';
+import { ContactComponent } from './features/contact/contact.component'
 
 @NgModule({
   declarations: [
@@ -18,12 +25,18 @@ import { LayoutComponent } from './core/layout/layout.component';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    LayoutComponent
+    LayoutComponent,
+    TutorialsComponent,
+    TableComponent,
+    DownloadComponent,
+    HistoryComponent,
+    ContactComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

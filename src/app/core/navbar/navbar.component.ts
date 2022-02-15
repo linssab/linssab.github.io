@@ -10,7 +10,9 @@ import { Observable } from 'rxjs/internal/Observable';
 
 export class NavbarComponent implements OnInit {
 
-  @Input() valoreInput?: string;
+  arrayLink = [
+    { label: "Home", routerLink: "/Home" }
+  ];
 
   @Output() dropNavBar = new EventEmitter();
 
