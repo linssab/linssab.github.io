@@ -14,7 +14,7 @@ export class ContactComponent implements OnInit {
     changelog: new Array<string>()
   }
 
-  formModel: any = {
+  model1: any = {
     name: "",
     surname: "",
     email: "",
@@ -26,6 +26,16 @@ export class ContactComponent implements OnInit {
 
   public minlengthChangelog: number = 10;
   public minlengthVersion: number = 6;
+
+  public minLenName: number = 4;
+  public minLenSurname: number = 4;
+  public minLenEmail: number = 7;
+  public minLenInstitution: number = 10;
+  public minLenText: number = 10;
+
+  checkEmail() {
+    console.log(this.model1.email)
+  }
 
   constructor() { }
 

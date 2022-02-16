@@ -1,3 +1,22 @@
 .dummy {
-  min-height: 75vh;
+  margin: auto;
+  height: 75vh;
+  display: table;
+  padding: 2em; 
+}
+
+.input-field {
+  max-width: 400px;
+  min-width: 245px;
+}
+
+.form-style {
+  padding: inherit;
+  border-style: groove;
+}
+
+.label {
+  font-size: 14pt;
+  font-style: oblique;
+  font-family: Tahoma;
 }
