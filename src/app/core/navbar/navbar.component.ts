@@ -10,19 +10,7 @@ import { Observable } from 'rxjs/internal/Observable';
 
 export class NavbarComponent implements OnInit {
 
-  arrayLink = [
-    { label: "Home", routerLink: "/Home" }
-  ];
-
-  @Output() dropNavBar = new EventEmitter();
-
-  valoreDaPassareInOutput?: string;
-
-  isCollapsed = false;
-
-  emitClick() {
-    this.isCollapsed = !this.isCollapsed;
-  }
+  public isMenuCollapsed = true;
 
   ngOnInit(): void {
   }
