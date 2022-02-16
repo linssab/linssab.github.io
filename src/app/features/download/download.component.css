@@ -1,3 +1,13 @@
 .dummy {
   min-height: 75vh;
 }
+
+.text {
+  text-align: justify-all;
+  font-family: Tahoma;
+  font-size: 12pt;
+}
+
+.pos-right {
+  float: right;
+}

@@ -1,0 +1,36 @@
+.title {
+  max-width: 250px;
+  margin-right: 1em;
+}
+
+.navmenu {
+  margin-left: 2em;
+}
+
+/* sm */
+@media (min-width: 576px) {
+  .title {
+    margin-right: 2em;
+  }
+}
+
+/* md */
+@media (min-width: 768px) {
+  .title {
+    margin-right: 3em;
+  }
+}
+
+/* lg */
+@media (min-width: 992px) {
+  .title {
+    margin-right: 4em;
+  }
+}
+
+/* xl */
+@media (min-width: 1200px) {
+  .title {
+    margin-right: 4em;
+  }
+}

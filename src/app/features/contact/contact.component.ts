@@ -14,6 +14,14 @@ export class ContactComponent implements OnInit {
     changelog: new Array<string>()
   }
 
+  formModel: any = {
+    name: "",
+    surname: "",
+    email: "",
+    institution: "",
+    text: ""
+  }
+
   public arrayData = new Array<VersionRecord>();
 
   public minlengthChangelog: number = 10;

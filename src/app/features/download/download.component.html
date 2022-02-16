@@ -1,7 +1,65 @@
 <div class="content lg-auto dummy" style="margin: 15px;">
 
+  <div class="container lg-auto">
+
+    <br />
+
+    <div class="row">
+      <h3>Check out our article at <a href="https://doi.org/10.1016/j.softx.2020.100621" target="_blank">Elsevier</a>! It's free!</h3>
+      <p>If you are using it for any scientific application, don't forget to cite us:<br />
+      Barcellos Lins, S.A., Bremmers, B. and Gigante, G.E. "XISMuS - X-ray fluorescence imaging software for multiple samples." <i>SoftwareX 12</i> (<b>2020</b>): 100621.</p>
+    </div>
+
+    <br />
+    <hr />
+    <br />
+
+    <div class="row">
+
+      <div class="col col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+
+        <h3>Installation instructions</h3>
+        <p>Read me please!</p>
+        <p class="text">
+          Distribution packages are available in the download links at the end of this page.
+          <b>Download the v2.0.0</b> and <b>afterwards</b> install the latest <a href="{{this.arrayDataCaller[0]['x64']}}">update</a>.
+          Download the version corresponding to your system architecture (32- or 64-bit) and run the setup.
+          Always apply the last patch or update available after installing the software!
+          XISMuS works on its own, however, some features may be not available as they rely on the xraylib package.
+          Check the pre-requisites below for further information.
+        </p>
+
+        <br />
+
+        <p class="text">
+          Some XISMuS features are only available if <a href="http://lvserver.ugent.be/xraylib/" target="_blank">
+          <b>xraylib</b></a> is installed. Download any version <b>later</b> than 3.3.0.
+          <br />
+          Windows 7 users may need to install the latest Visual C++ Redistributable Packages for XISMuS to work properly.
+          It can be downloaded for free <a href="https://www.microsoft.com/en-us/download/details.aspx?id=40784" target="_blank">here</a>.
+</p>
+
+      </div>
+
+      <div class="col col-12 col-sm-12 col-md-21 col-lg-6 col-xl-6">
+
+        <img class="img-fluid pos-right" src="../../assets/installation.png" />
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <br />
+  <hr />
+  <br />
+
   <app-table [tableTemplate]="tableTemplateCaller"
              [arrayData]="arrayDataCaller">
   </app-table>
+
+  <br />
+  <br />
 
  </div>

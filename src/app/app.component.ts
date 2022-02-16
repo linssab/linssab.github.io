@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -6,8 +8,19 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
-  title = 'MyFirstAngularWebPage';
+
+  title = 'XISMuS - X-Ray Imaging Software for Multiple Samples';
+
+  public constructor(router: Router, private titleServ: Title) {
+    router.navigate(['/home'])
+    this.setTitle( this.title );
+  }
+
+  public setTitle(newTitle: string) {
+    this.titleServ.setTitle( newTitle );
+  }
 
   links = [
     "home",
