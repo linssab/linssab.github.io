@@ -14,7 +14,7 @@ export class ContactComponent implements OnInit {
   public minLenName: number = 2;
   public minLenSurname: number = 2;
   public minLenEmail: number = 6;
-  public minLenInstitution: number = 2;
+  public minLenInstitution: number = 4;
   public minLenText: number = 10;
 
   private myAPI = "https://script.google.com/macros/s/AKfycbxas-mOo2fUjxpiIJZZUzH1Zh3qpNxECQmIB8Y27BsN51SioAv5qi-HUSckfq2XwUQO/exec";
@@ -33,7 +33,7 @@ export class ContactComponent implements OnInit {
     [Validators.required, Validators.minLength(this.minLenInstitution) ]);
 
   text: FormControl = new FormControl('',
-    [ Validators.required, Validators.maxLength( 256 ) ] );
+    [Validators.required, Validators.maxLength(256), Validators.minLength(this.minLenText) ]);
 
   honeypot: FormControl = new FormControl('');
 

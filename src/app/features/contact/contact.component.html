@@ -8,46 +8,50 @@
     <!--INPUT 1-->
     <label>Name:</label><br />
     <input class="form-control input-field"
-               type="text"
-               name="name"
-               required
-               placeholder="Name"
-               formControlName="name"/>
+           type="text"
+           name="name"
+           required
+           placeholder="Name"
+           formControlName="name" />
 
     <br />
 
     <!--INPUT 2-->
     <label>Surname:</label><br />
     <input class="form-control input-field"
-               type="text"
-               name="surname"
-               required
-               placeholder="Surname"
-               formControlName="surname"/>
+           type="text"
+           name="surname"
+           required
+           placeholder="Surname"
+           formControlName="surname" />
 
     <br />
 
     <!--INPUT 3-->
     <label>Email:</label><br />
     <input class="form-control input-field"
-               type="text"
-               name="email"
-               required
-               placeholder="name.surname@example.org"
-               formControlName="email"/>
-
+           type="text"
+           name="email"
+           required
+           placeholder="name.surname@example.org"
+           formControlName="email" />
 
     <br />
 
     <!--INPUT 4-->
     <label>Institution:</label><br />
     <input class="form-control input-field"
-               type="text"
-               name="institution"
-               required
-               placeholder="Example University"
-               formControlName="institution"/>
-
+           type="text"
+           name="institution"
+           required
+           placeholder="Example University"
+           formControlName="institution" />
+    <div *ngIf="FormData.controls['institution'].invalid && FormData.controls['institution'].dirty">
+      <div *ngIf="FormData.controls['institution'].errors">
+        <br />
+        <p class="error-msg">Institution name must be at least 4 characters long!</p>
+      </div>
+    </div>
     <br />
 
     <!--INPUT 5-->
@@ -60,6 +64,14 @@
               formControlName="text"
               rows="4">
     </textarea>
+    <div *ngIf="FormData.controls['text'].invalid && (FormData.controls['text'].dirty
+         || FormData.controls['text'].touched)">
+      <div *ngIf="FormData.controls['text'].errors">
+        <br />
+        <p class="error-msg">Message length must be between 10 and 256 characters!</p>
+      </div>
+    </div>
+
 
     <input type="hidden" name="_subject" value="XISMuS Contact">
     <input type="hidden" name="_honeypot" value="">
@@ -70,7 +82,7 @@
     <!--SUBMISSION-->
     <button type="submit" class="btn btn-primary"
             [disabled]="!FormData.valid">
-      Sumbit
+      Submit
     </button>
     <!-------------->
 
