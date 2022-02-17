@@ -1,7 +1,7 @@
 <div class="content lg-auto dummy">
 
   <form [formGroup]="FormData"
-        (ngSubmit)="onSubmit( )"
+        (ngSubmit)="onSubmit()"
         class="form-style"
         method="post">
 
@@ -12,9 +12,7 @@
                name="name"
                required
                placeholder="Name"
-               formControlName="name"
-               minlength={{minLenName}} />
-
+               formControlName="name"/>
 
     <br />
 
@@ -25,8 +23,7 @@
                name="surname"
                required
                placeholder="Surname"
-               formControlName="surname"
-               minlength={{minLenSurname}} />
+               formControlName="surname"/>
 
     <br />
 
@@ -37,8 +34,7 @@
                name="email"
                required
                placeholder="name.surname@example.org"
-               formControlName="email"
-               minlength={{minLenEmail}} />
+               formControlName="email"/>
 
 
     <br />
@@ -50,8 +46,7 @@
                name="institution"
                required
                placeholder="Example University"
-               formControlName="institution"
-               minlength={{minLenEmail}} />
+               formControlName="institution"/>
 
     <br />
 
@@ -63,7 +58,6 @@
               required
               placeholder="Enter your message here."
               formControlName="text"
-              minlength={{minLenText}}
               rows="4">
     </textarea>
 

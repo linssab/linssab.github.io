@@ -11,30 +11,30 @@ import { HttpClient } from '@angular/common/http';
 
 export class ContactComponent implements OnInit {
 
-  
-
-  model1: any = {
-    name: "",
-    surname: "",
-    email: "",
-    institution: "",
-    text: ""
-  };
-
-  public minLenName: number = 4;
-  public minLenSurname: number = 4;
-  public minLenEmail: number = 7;
-  public minLenInstitution: number = 10;
+  public minLenName: number = 2;
+  public minLenSurname: number = 2;
+  public minLenEmail: number = 6;
+  public minLenInstitution: number = 2;
   public minLenText: number = 10;
 
   private myAPI = "https://script.google.com/macros/s/AKfycbxas-mOo2fUjxpiIJZZUzH1Zh3qpNxECQmIB8Y27BsN51SioAv5qi-HUSckfq2XwUQO/exec";
 
   FormData: FormGroup | any;
-  name: FormControl = new FormControl('', [Validators.required] );
-  surname: FormControl = new FormControl('', [Validators.required] );
-  email: FormControl =  new FormControl('', [Validators.required, Validators.email]);
-  institution: FormControl =  new FormControl('', [Validators.required]);
-  text: FormControl =  new FormControl('', [Validators.required, Validators.maxLength(256)] );
+  name: FormControl = new FormControl('',
+    [Validators.required, Validators.minLength(this.minLenName) ] );
+
+  surname: FormControl = new FormControl('',
+    [Validators.required, Validators.minLength(this.minLenSurname) ]);
+
+  email: FormControl = new FormControl('',
+    [ Validators.required, Validators.email ] );
+
+  institution: FormControl = new FormControl('',
+    [Validators.required, Validators.minLength(this.minLenInstitution) ]);
+
+  text: FormControl = new FormControl('',
+    [ Validators.required, Validators.maxLength( 256 ) ] );
+
   honeypot: FormControl = new FormControl('');
 
   submitted: boolean = false; // show and hide the success message
@@ -76,6 +76,7 @@ export class ContactComponent implements OnInit {
           // choose the response message
           if (response) {
             this.responseMessage = "Thanks for the message!";
+            this.FormData.reset();
           } else {
             this.responseMessage = "Oops! Something went wrong...";
           }
