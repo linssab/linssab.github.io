@@ -18,6 +18,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HistoryComponent } from './features/history/history.component';
 import { ContactComponent } from './features/contact/contact.component'
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ import { ContactComponent } from './features/contact/contact.component'
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

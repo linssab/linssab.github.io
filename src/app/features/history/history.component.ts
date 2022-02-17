@@ -45,7 +45,6 @@ export class HistoryComponent implements OnInit, OnDestroy {
     }
   ]*/
 
-  public contact: ContactComponent = new ContactComponent;
   private pageLim: number = 25;
 
   constructor(

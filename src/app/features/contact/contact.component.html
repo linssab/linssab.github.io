@@ -1,174 +1,88 @@
 <div class="content lg-auto dummy">
 
-  <form #form="ngForm"
+  <form [formGroup]="FormData"
+        (ngSubmit)="onSubmit( )"
         class="form-style"
-        (submit)="onSubmit()">
+        method="post">
 
     <!--INPUT 1-->
     <label>Name:</label><br />
     <input class="form-control input-field"
-           type="text"
-           [(ngModel)]="model1.name"
-           [ngClass]="{
-          'is-invalid' : input1.invalid && input1.dirty,
-          'is-valid' : !input1.invalid && input1.dirty
-         }"
-           name="input1"
-           #input1="ngModel"
-           required
-           minlength={{minLenName}} />
+               type="text"
+               name="name"
+               required
+               placeholder="Name"
+               formControlName="name"
+               minlength={{minLenName}} />
 
-    <!----------->
-    <div *ngIf="input1.errors && input1.dirty"
-         class="invalid-feedback">
-
-      <p *ngIf="input1.errors['minlength']">
-        Minumum number of characters: {{minLenName}}
-      </p>
-
-      <p *ngIf="input1.errors['required']">
-        This field is mandatory.
-      </p>
-
-    </div>
-    <!----------->
 
     <br />
 
     <!--INPUT 2-->
     <label>Surname:</label><br />
     <input class="form-control input-field"
-           type="text"
-           [(ngModel)]="model1.surname"
-           [ngClass]="{
-          'is-invalid' : input2.invalid && input2.dirty,
-          'is-valid' : !input2.invalid && input2.dirty
-         }"
-           name="input2"
-           #input2="ngModel"
-           required
-           minlength={{minLenSurname}} />
-
-    <!----------->
-    <div *ngIf="input2.errors && input2.dirty"
-         class="invalid-feedback">
-
-      <p *ngIf="input2.errors['minlength']">
-        Minumum number of characters: {{minLenSurname}}
-      </p>
-
-      <p *ngIf="input2.errors['required']">
-        This field is mandatory.
-      </p>
-
-    </div>
-    <!----------->
+               type="text"
+               name="surname"
+               required
+               placeholder="Surname"
+               formControlName="surname"
+               minlength={{minLenSurname}} />
 
     <br />
 
     <!--INPUT 3-->
     <label>Email:</label><br />
     <input class="form-control input-field"
-           type="text"
-           [(ngModel)]="model1.email"
-           [ngClass]="{
-          'is-invalid' : input3.invalid && input3.dirty,
-          'is-valid' : !input3.invalid && input3.dirty
-         }"
-           name="input3"
-           #input3="ngModel"
-           required
-           minlength={{minLenEmail}} />
+               type="text"
+               name="email"
+               required
+               placeholder="name.surname@example.org"
+               formControlName="email"
+               minlength={{minLenEmail}} />
 
-    <!----------->
-    <div *ngIf="input3.errors && input3.dirty"
-         class="invalid-feedback">
-
-      <p *ngIf="input3.errors['minlength']">
-        Minumum number of characters: {{minLenEmail}}
-      </p>
-
-      <p *ngIf="input3.errors['required']">
-        This field is mandatory.
-      </p>
-
-    </div>
-    <!----------->
 
     <br />
 
     <!--INPUT 4-->
     <label>Institution:</label><br />
     <input class="form-control input-field"
-           type="text"
-           [(ngModel)]="model1.institution"
-           [ngClass]="{
-          'is-invalid' : input4.invalid && input4.dirty,
-          'is-valid' : !input4.invalid && input4.dirty
-         }"
-           name="input4"
-           #input4="ngModel"
-           required
-           minlength={{minLenEmail}} />
-
-    <!----------->
-    <div *ngIf="input4.errors && input4.dirty"
-         class="invalid-feedback">
-
-      <p *ngIf="input4.errors['minlength']">
-        Minumum number of characters: {{minLenInstitution}}
-      </p>
-
-      <p *ngIf="input4.errors['required']">
-        This field is mandatory.
-      </p>
-
-    </div>
-    <!----------->
+               type="text"
+               name="institution"
+               required
+               placeholder="Example University"
+               formControlName="institution"
+               minlength={{minLenEmail}} />
 
     <br />
 
     <!--INPUT 5-->
     <label>Message:</label><br />
     <textarea class="form-control input-field"
-           type="text"
-           [(ngModel)]="model1.text"
-           [ngClass]="{
-          'is-invalid' : input5.invalid && input5.dirty,
-          'is-valid' : !input5.invalid && input5.dirty}"
-           name="input5"
-           #input5="ngModel"
-           required
-           minlength={{minLenText}}
-           rows="4">
+              type="text"
+              name="text"
+              required
+              placeholder="Enter your message here."
+              formControlName="text"
+              minlength={{minLenText}}
+              rows="4">
     </textarea>
 
-    <!----------->
-    <div *ngIf="input5.errors && input5.dirty"
-         class="invalid-feedback">
-
-      <p *ngIf="input5.errors['minlength']">
-        Message must be at least {{minLenText}} characters long!
-      </p>
-
-      <p *ngIf="input5.errors['required']">
-        This field is mandatory.
-      </p>
-
-    </div>
-    <!----------->
+    <input type="hidden" name="_subject" value="XISMuS Contact">
+    <input type="hidden" name="_honeypot" value="">
+    <input type="hidden" name="_confirmation" value="Contact request sent!">
 
     <br />
 
     <!--SUBMISSION-->
     <button type="submit" class="btn btn-primary"
-            [ngClass]="{
-          'btn-secondary': form.invalid,
-          'btn-success': form.valid
-          }">
+            [disabled]="!FormData.valid">
       Sumbit
     </button>
     <!-------------->
+
+    <div [ngClass]="!submitted? 'hidden' : 'visible'" class="center-text">
+      <span>{{responseMessage}}</span>
+    </div>
 
   </form>
 </div>
