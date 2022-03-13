@@ -29,6 +29,13 @@ export class DownloadComponent implements OnInit {
 
   arrayDataCaller = [
     {
+      date: "March 2022",
+      ver: "v2.5.0",
+      note: "Update",
+      x64: "https://sourceforge.net/projects/xismus/files/XISMuS-v2.5.0-Update.exe/download",
+      x86: "https://sourceforge.net/projects/xismus/files/XISMuS-v2.5.0-Update.exe/download",
+    },
+    {
       date: "September 2021",
       ver: "v2.4.3",
       note: "Update",
